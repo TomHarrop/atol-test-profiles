@@ -1,4 +1,5 @@
-def testfile = 's3://pawsey1132.atol.testassembly/testfile.txt'
+def mydir = file('s3://pawsey1132.atol.testassembly')
+// def mydir = file('results')
 
 process createFile {
     container 'amazon/aws-cli:2.22.31'
@@ -7,11 +8,13 @@ process createFile {
     memory '1 GB'
 
     output:
-        path(testfile)
+        path 'testfile.txt'
+
+    publishDir mydir
 
     script:
     """
-    echo 'This file was created by the Nextflow workflow.' > $testfile
+    echo 'This file was created by the Nextflow workflow.' > testfile.txt
     """
 }
 
