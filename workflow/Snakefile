@@ -6,7 +6,7 @@ mydir = "s3://pawsey1132.atol.testassembly"
 rule createFile:
     output:
         outfile=storage.s3(
-            Path(mydir, "testfile.snakemake.txt"),
+            Path(mydir, "testfile.snakemake.txt").as_posix(),
         ),
     container:
         "docker://amazon/aws-cli:2.22.31"
