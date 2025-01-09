@@ -9,12 +9,12 @@ rule createFile:
     container:
         "docker://amazon/aws-cli:2.22.31"
     resources:
-        runtime="1m",
+        runtime=1,
         mem_mb=1000,
     threads: 1
     shell:
         """
-        echo 'Written by snakemake' > ${output.outfile}
-        uname -n >> ${output.outfile}
-        date >> ${output.outfile}
+        echo 'Written by snakemake' > {output.outfile}
+        uname -n >> {output.outfile}
+        date >> {output.outfile}
         """
