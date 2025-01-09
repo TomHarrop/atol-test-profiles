@@ -14,7 +14,9 @@ process createFile {
 
     script:
     """
-    echo 'This file was created by the Nextflow workflow.' > testfile.txt
+    echo 'Written by nextflow' > testfile.txt
+    uname -n >> testfile.txt
+    date >> testfile.txt
     """
 }
 
