@@ -1,11 +1,13 @@
 from pathlib import Path
 
-mydir = storage.s3("s3://pawsey1132.atol.testassembly")
+mydir = "s3://pawsey1132.atol.testassembly"
 
 
 rule createFile:
     output:
-        outfile=Path(mydir, "testfile.snakemake.txt"),
+        outfile=storage.s3(
+            Path(mydir, "testfile.snakemake.txt"),
+        ),
     container:
         "docker://amazon/aws-cli:2.22.31"
     resources:
