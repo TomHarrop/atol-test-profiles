@@ -5,7 +5,7 @@ def mydir = file('s3://pawsey1132.atol.testassembly')
 process createFile {
 
     container 'amazon/aws-cli:2.22.31'
-    time '2d'
+    time '4d'
     cpus 1
     memory '1 GB'
 
