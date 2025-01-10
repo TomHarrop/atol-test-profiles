@@ -1,6 +1,5 @@
 
 def mydir = file('s3://pawsey1132.atol.testassembly')
-// def mydir = file('results')
 
 
 process createFile {
@@ -11,15 +10,15 @@ process createFile {
     memory '1 GB'
 
     output:
-        path 'testfile.txt'
+        path 'testfile.nextflow.txt'
 
     publishDir mydir
 
     script:
     """
-    echo 'Written by nextflow' > testfile.txt
-    uname -n >> testfile.txt
-    date >> testfile.txt
+    echo 'Written by nextflow' > testfile.nextflow.txt
+    uname -n >> testfile.nextflow.txt
+    date >> testfile.nextflow.txt
     """
 }
 
